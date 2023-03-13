@@ -1,14 +1,16 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
+import { fetchFoods } from '../apis/foods';
 
+export const Foods = () => {
+  useEffect(() => {
+    fetchFoods(1)
+    .then((data) => console.log(data))
+  }, [])
 
-// 戻り値としてdom要素を返す的な
-export const Foods = ({
-  match
-}) => {
   return (
     <Fragment>
       フード一覧
-      <p>restaurantsIdは{ match.params.restaurantsId }</p>
     </Fragment>
   )
+
 }
